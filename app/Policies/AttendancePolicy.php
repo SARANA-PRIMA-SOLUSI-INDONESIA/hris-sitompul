@@ -39,4 +39,29 @@ class AttendancePolicy
     {
         return $user->hasAnyRole(['super_admin', 'hr_admin']);
     }
+
+    public function deleteAny(User $user): bool
+    {
+        return $user->hasAnyRole(['super_admin', 'hr_admin']);
+    }
+
+    public function restore(User $user, Attendance $attendance): bool
+    {
+        return $user->hasRole('super_admin');
+    }
+
+    public function restoreAny(User $user): bool
+    {
+        return $user->hasRole('super_admin');
+    }
+
+    public function forceDelete(User $user, Attendance $attendance): bool
+    {
+        return $user->hasRole('super_admin');
+    }
+
+    public function forceDeleteAny(User $user): bool
+    {
+        return $user->hasRole('super_admin');
+    }
 }

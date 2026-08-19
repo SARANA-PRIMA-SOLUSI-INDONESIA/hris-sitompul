@@ -46,6 +46,31 @@ class LeavePolicy
             || ($leave->employee->user_id === $user->id && $leave->status === Leave::STATUS_DRAFT);
     }
 
+    public function deleteAny(User $user): bool
+    {
+        return $user->hasAnyRole(['super_admin', 'hr_admin']);
+    }
+
+    public function restore(User $user, Leave $leave): bool
+    {
+        return $user->hasRole('super_admin');
+    }
+
+    public function restoreAny(User $user): bool
+    {
+        return $user->hasRole('super_admin');
+    }
+
+    public function forceDelete(User $user, Leave $leave): bool
+    {
+        return $user->hasRole('super_admin');
+    }
+
+    public function forceDeleteAny(User $user): bool
+    {
+        return $user->hasRole('super_admin');
+    }
+
     public function approve(User $user, Leave $leave): bool
     {
         if ($user->hasAnyRole(['super_admin', 'hr_admin'])) {

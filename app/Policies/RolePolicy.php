@@ -42,7 +42,17 @@ class RolePolicy
         return $user->hasRole('super_admin');
     }
 
+    public function restoreAny(User $user): bool
+    {
+        return $user->hasRole('super_admin');
+    }
+
     public function forceDelete(User $user, Role $role): bool
+    {
+        return false;
+    }
+
+    public function forceDeleteAny(User $user): bool
     {
         return false;
     }

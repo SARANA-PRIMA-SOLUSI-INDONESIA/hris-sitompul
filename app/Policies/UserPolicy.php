@@ -30,4 +30,29 @@ class UserPolicy
     {
         return $user->hasRole('super_admin') && $user->id !== $model->id;
     }
+
+    public function deleteAny(User $user): bool
+    {
+        return $user->hasRole('super_admin');
+    }
+
+    public function restore(User $user, User $model): bool
+    {
+        return $user->hasRole('super_admin');
+    }
+
+    public function restoreAny(User $user): bool
+    {
+        return $user->hasRole('super_admin');
+    }
+
+    public function forceDelete(User $user, User $model): bool
+    {
+        return $user->hasRole('super_admin') && $user->id !== $model->id;
+    }
+
+    public function forceDeleteAny(User $user): bool
+    {
+        return $user->hasRole('super_admin');
+    }
 }
