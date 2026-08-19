@@ -14,11 +14,11 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->trustProxies(
             at: '*',
-            headers: Illuminate\Http\Middleware\TrustProxies::HEADER_X_FORWARDED_FOR
-                | Illuminate\Http\Middleware\TrustProxies::HEADER_X_FORWARDED_HOST
-                | Illuminate\Http\Middleware\TrustProxies::HEADER_X_FORWARDED_PORT
-                | Illuminate\Http\Middleware\TrustProxies::HEADER_X_FORWARDED_PROTO
-                | Illuminate\Http\Middleware\TrustProxies::HEADER_X_FORWARDED_AWS_ELB,
+            headers: Request::HEADER_X_FORWARDED_FOR
+                | Request::HEADER_X_FORWARDED_HOST
+                | Request::HEADER_X_FORWARDED_PORT
+                | Request::HEADER_X_FORWARDED_PROTO
+                | Request::HEADER_X_FORWARDED_AWS_ELB,
         );
     })
     ->withExceptions(function (Exceptions $exceptions): void {
