@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources\Payslips\Schemas;
 
-use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Schema;
 
 class PayslipForm

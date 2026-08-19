@@ -5,11 +5,11 @@ namespace App\Filament\Resources\Employees\Schemas;
 use App\Actions\GenerateEmployeeNumber;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Schema;
 
 class EmployeeForm

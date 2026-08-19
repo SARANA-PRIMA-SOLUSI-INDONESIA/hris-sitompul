@@ -4,12 +4,12 @@ namespace App\Filament\Resources\Leaves\Tables;
 
 use App\Actions\ApproveLeave;
 use App\Models\Leave;
+use Filament\Actions\Action as TableAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Forms\Components\Textarea;
 use Filament\Notifications\Notification;
-use Filament\Tables\Actions\Action as TableAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
