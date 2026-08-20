@@ -147,7 +147,7 @@
             @endif
         </div>
         <div class="card-footer">
-            {{ config('app.name', 'SITOMBUNG') }} &middot; {{ date('Y') }}
+            {{ config('app.name', 'SITOMPUL') }} &middot; {{ date('Y') }}
         </div>
     </div>
 </body>

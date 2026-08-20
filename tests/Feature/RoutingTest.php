@@ -13,3 +13,7 @@ it('serves the admin login page', function () {
 it('exposes the configured employee number prefix', function () {
     expect(config('app.employee_number_prefix'))->toBe('SIT');
 });
+
+it('uses Sitompul as the application brand name', function () {
+    expect(config('app.name'))->toBe('SITOMPUL');
+});
