@@ -8,6 +8,7 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Schema;
@@ -143,6 +144,12 @@ class EmployeeForm
                 TextInput::make('alasan_keluar')
                     ->label('Alasan Keluar')
                     ->maxLength(255),
+            ]),
+            Grid::make(1)->schema([
+                Toggle::make('tampilkan_kartu')
+                    ->label('Tampilkan Kartu Nama Publik (QR)')
+                    ->default(true)
+                    ->helperText('Jika aktif, kartu nama digital karyawan dapat diakses publik via QR code.'),
             ]),
         ];
     }

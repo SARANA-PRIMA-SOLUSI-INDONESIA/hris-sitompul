@@ -16,6 +16,8 @@ class Employee extends Model
 
     protected $fillable = [
         'no_pegawai',
+        'slug',
+        'tampilkan_kartu',
         'user_id',
         'nama_lengkap',
         'nik',
@@ -45,6 +47,7 @@ class Employee extends Model
             'tanggal_bergabung' => 'date',
             'tanggal_kontrak_selesai' => 'date',
             'tanggal_keluar' => 'date',
+            'tampilkan_kartu' => 'boolean',
         ];
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Employees\Tables;
 
+use App\Filament\Resources\Employees\Actions\ShowQrCardAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -85,6 +86,7 @@ class EmployeesTable
             ->defaultSort('no_pegawai')
             ->recordActions([
                 EditAction::make(),
+                ShowQrCardAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
