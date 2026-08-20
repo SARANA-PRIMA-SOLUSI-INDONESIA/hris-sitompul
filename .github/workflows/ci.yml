@@ -63,6 +63,7 @@ jobs:
       - name: Run Pest
         env:
           APP_ENV: testing
+          APP_KEY: base64:testingkeytestingkeytestingkeytestingkeytes=
           DB_CONNECTION: mysql
           DB_HOST: 127.0.0.1
           DB_PORT: 3306
