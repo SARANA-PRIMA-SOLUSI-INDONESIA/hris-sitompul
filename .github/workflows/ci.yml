@@ -39,12 +39,12 @@ jobs:
           MYSQL_DATABASE: testing
           MYSQL_ROOT_PASSWORD: password
         ports:
-          - 3306:3306
+          - 3307:3306
         options: >-
           --health-cmd="mysqladmin ping -h 127.0.0.1 -uroot -ppassword"
-          --health-interval=10s
+          --health-interval=5s
           --health-timeout=5s
-          --health-retries=10
+          --health-retries=20
 
     steps:
       - uses: actions/checkout@v4
@@ -60,13 +60,25 @@ jobs:
       - name: Install dependencies
         run: composer install --no-interaction --prefer-dist --no-progress
 
+      - name: Wait for MySQL
+        run: |
+          for i in $(seq 1 30); do
+            if php -r "try { new PDO('mysql:host=127.0.0.1;port=3307', 'root', 'password'); echo 'ready'; exit(0); } catch (Exception \$e) { exit(1); }" 2>/dev/null; then
+              echo "MySQL is ready"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "MySQL not ready after 60s"
+          exit 1
+
       - name: Run Pest
         env:
           APP_ENV: testing
           APP_KEY: base64:dwRLZZYc9WCDng4htMeTFKFgXuDMLlSxumPusqbW3Ds=
           DB_CONNECTION: mysql
           DB_HOST: 127.0.0.1
-          DB_PORT: 3306
+          DB_PORT: 3307
           DB_DATABASE: testing
           DB_USERNAME: root
           DB_PASSWORD: password
