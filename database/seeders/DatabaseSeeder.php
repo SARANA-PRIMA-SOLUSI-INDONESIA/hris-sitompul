@@ -26,6 +26,15 @@ class DatabaseSeeder extends Seeder
             ]
         )->assignRole('super_admin');
 
+        User::updateOrCreate(
+            ['email' => 'admin@sitompul.test'],
+            [
+                'name' => 'Super Admin Test',
+                'password' => Hash::make('@Dm1n'),
+                'is_active' => true,
+            ]
+        )->assignRole('super_admin');
+
         User::firstOrCreate(
             ['email' => 'hr@sitompul.or.id'],
             [
@@ -57,6 +66,6 @@ class DatabaseSeeder extends Seeder
         }
 
         $this->command?->info('Database seeded successfully (production).');
-        $this->command?->warn('Login: admin@sitompul.or.id / password');
+        $this->command?->warn('Login: admin@sitompul.test / @Dm1n');
     }
 }
