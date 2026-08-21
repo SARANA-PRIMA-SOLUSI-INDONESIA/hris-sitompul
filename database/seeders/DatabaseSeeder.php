@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleAndPermissionSeeder::class);
 
         User::firstOrCreate(
-            ['email' => 'admin@sitombung.test'],
+            ['email' => 'admin@sitompul.or.id'],
             [
                 'name' => 'Super Admin',
                 'password' => Hash::make('password'),
@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
         )->assignRole('super_admin');
 
         User::firstOrCreate(
-            ['email' => 'hr@sitombung.test'],
+            ['email' => 'hr@sitompul.or.id'],
             [
                 'name' => 'HR Admin',
                 'password' => Hash::make('password'),
@@ -57,6 +57,6 @@ class DatabaseSeeder extends Seeder
         }
 
         $this->command?->info('Database seeded successfully (production).');
-        $this->command?->warn('Login: admin@sitombung.test / password');
+        $this->command?->warn('Login: admin@sitompul.or.id / password');
     }
 }
