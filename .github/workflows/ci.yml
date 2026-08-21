@@ -32,6 +32,7 @@ jobs:
 
   tests:
     name: Tests (Pest)
+    needs: build-assets
     runs-on: ubuntu-latest
     services:
       mysql:
@@ -60,6 +61,12 @@ jobs:
 
       - name: Install dependencies
         run: composer install --no-interaction --prefer-dist --no-progress --no-scripts
+
+      - name: Download built frontend assets
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-build
+          path: public/build/
 
       - name: Discover packages
         run: php artisan package:discover
@@ -97,6 +104,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, dom, intl, pdo_mysql, gd, zip, bcmath, exif, fileinfo
+          tools: composer:v2
+          coverage: none
+
+      - name: Install PHP dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress --no-scripts
 
       - name: Setup Node
         uses: actions/setup-node@v4
