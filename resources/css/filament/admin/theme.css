@@ -14,7 +14,29 @@
 }
 
 .fi-sidebar-header .fi-logo {
-    max-height: 4rem;
+    max-height: 4.75rem;
+    overflow: hidden;
+}
+
+.fi-sidebar-header .fi-logo > div {
+    gap: 0.25rem;
+    max-width: 100%;
+    overflow: hidden;
+    padding-inline: 0.5rem;
+}
+
+.fi-sidebar-header .fi-logo img {
+    height: 3rem;
+    max-width: 100%;
+}
+
+.fi-sidebar-header .fi-logo span {
+    display: block;
+    max-width: 13rem;
+    overflow: hidden;
+    font-size: 0.65rem;
+    line-height: 0.875rem;
+    max-height: 1.75rem;
 }
 
 .fi-main-ctn {
