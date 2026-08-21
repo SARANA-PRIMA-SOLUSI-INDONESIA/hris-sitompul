@@ -1,0 +1,55 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Keep the dashboard compact without changing Filament's component behavior. */
+.fi-sidebar-header {
+    min-height: 5.25rem;
+    padding-block: 0.75rem;
+}
+
+.fi-sidebar-header .fi-logo {
+    max-height: 4rem;
+}
+
+.fi-main-ctn {
+    padding-block: 1.25rem;
+}
+
+.fi-page-header {
+    margin-bottom: 1rem;
+}
+
+.fi-wi-stats-overview {
+    gap: 0.75rem;
+}
+
+.fi-wi-stats-overview-stat {
+    min-height: 7.5rem;
+    padding: 1rem;
+}
+
+.fi-wi-stats-overview-stat-value {
+    font-size: 1.5rem;
+    line-height: 1.25;
+}
+
+.fi-wi-chart {
+    min-height: 20rem;
+}
+
+@media (max-width: 640px) {
+    .fi-main-ctn {
+        padding-block: 1rem;
+    }
+
+    .fi-wi-stats-overview-stat {
+        min-height: 6.75rem;
+        padding: 0.875rem;
+    }
+}

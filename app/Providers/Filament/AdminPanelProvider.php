@@ -12,6 +12,7 @@ use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Support\Enums\Width;
 use Filament\Widgets\AccountWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
@@ -33,6 +34,9 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Emerald,
             ])
+            ->maxContentWidth(Width::Full)
+            ->sidebarWidth('17rem')
+            ->viteTheme('resources/css/filament/admin/theme.css')
             ->brandName('SITOMPUL')
             ->brandLogo(fn () => view('filament.admin.logo'))
             ->brandLogoHeight('auto')
