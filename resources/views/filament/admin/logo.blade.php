@@ -5,8 +5,4 @@
         class="h-16 w-auto object-contain"
     >
 
-    <span class="max-w-xs text-xs font-semibold leading-4 text-gray-950 dark:text-white">
-        Hatopan Raja Toga Sitompul<br>
-        Boru, Bere, Ibebere Bandung Raya dan Sekitarnya
-    </span>
 </div>
