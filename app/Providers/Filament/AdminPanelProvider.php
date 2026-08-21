@@ -35,7 +35,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->brandName('SITOMPUL')
             ->brandLogo(fn () => view('filament.admin.logo'))
-            ->brandLogoHeight('2.5rem')
+            ->brandLogoHeight('auto')
             ->favicon(asset('images/logo.png'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
