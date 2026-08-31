@@ -40,6 +40,10 @@ class EmployeeForm
                     ->label('Nama Lengkap')
                     ->required()
                     ->maxLength(255),
+                TextInput::make('nama_perusahaan')
+                    ->label('Nama Perusahaan')
+                    ->required()
+                    ->maxLength(255),
                 TextInput::make('nik')
                     ->label('NIK (KTP)')
                     ->required()

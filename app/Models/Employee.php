@@ -20,6 +20,7 @@ class Employee extends Model
         'tampilkan_kartu',
         'user_id',
         'nama_lengkap',
+        'nama_perusahaan',
         'nik',
         'tempat_lahir',
         'tanggal_lahir',

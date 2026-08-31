@@ -31,6 +31,10 @@ class EmployeesTable
                     ->label('Nama')
                     ->searchable()
                     ->sortable(),
+                TextColumn::make('nama_perusahaan')
+                    ->label('Perusahaan')
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('position.nama')
                     ->label('Jabatan')
                     ->searchable()

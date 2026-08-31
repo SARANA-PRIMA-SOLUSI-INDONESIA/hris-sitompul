@@ -109,42 +109,22 @@
                     <div class="info-value">{{ $employee->no_pegawai }}</div>
                 </div>
             </div>
-            @if ($employee->department)
+            @if ($employee->nama_perusahaan)
             <div class="info-row">
                 <div class="info-icon">&#127970;</div>
                 <div>
-                    <div class="info-label">Departemen</div>
-                    <div class="info-value">{{ $employee->department->nama }}</div>
+                    <div class="info-label">Perusahaan</div>
+                    <div class="info-value">{{ $employee->nama_perusahaan }}</div>
                 </div>
             </div>
             @endif
-            @if ($employee->no_telp)
             <div class="info-row">
-                <div class="info-icon">&#128222;</div>
+                <div class="info-icon">&#10003;</div>
                 <div>
-                    <div class="info-label">Telepon</div>
-                    <div class="info-value"><a href="tel:{{ $employee->no_telp }}">{{ $employee->no_telp }}</a></div>
+                    <div class="info-label">Status</div>
+                    <div class="info-value">{{ $employee->isAktif() ? 'Terdaftar' : 'Tidak aktif' }}</div>
                 </div>
             </div>
-            @endif
-            @if ($employee->email_pribadi)
-            <div class="info-row">
-                <div class="info-icon">&#9993;</div>
-                <div>
-                    <div class="info-label">Email</div>
-                    <div class="info-value"><a href="mailto:{{ $employee->email_pribadi }}">{{ $employee->email_pribadi }}</a></div>
-                </div>
-            </div>
-            @endif
-            @if ($employee->alamat)
-            <div class="info-row">
-                <div class="info-icon">&#128205;</div>
-                <div>
-                    <div class="info-label">Alamat</div>
-                    <div class="info-value">{{ $employee->alamat }}</div>
-                </div>
-            </div>
-            @endif
         </div>
         <div class="card-footer">
             {{ config('app.name', 'SITOMPUL') }} &middot; {{ date('Y') }}
