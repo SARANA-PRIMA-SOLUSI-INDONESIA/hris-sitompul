@@ -98,8 +98,8 @@
                 <div class="avatar-placeholder">{{ strtoupper(substr($employee->nama_lengkap, 0, 1)) }}</div>
             @endif
             <div class="name">{{ $employee->nama_lengkap }}</div>
-            <div class="position">{{ $employee->position?->nama }}</div>
-            <div class="company">{{ config('app.name', 'Perusahaan') }}</div>
+            <div class="position">{{ $employee->jabatan }}</div>
+            <div class="company">{{ $employee->nama_perusahaan }}</div>
         </div>
         <div class="card-body">
             <div class="info-row">

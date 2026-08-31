@@ -13,7 +13,6 @@ class EmployeeCardController extends Controller
         $employee = Employee::query()
             ->where('slug', $slug)
             ->where('tampilkan_kartu', true)
-            ->with(['department', 'position'])
             ->firstOrFail();
 
         return ViewFacade::make('card.show', ['employee' => $employee]);

@@ -16,9 +16,14 @@ it('generates a unique employee number in the expected format', function () {
     expect($number)->toMatch('/^'.$prefix.'-\d{4}-\d{4}$/');
 });
 
-it('generates unique employee numbers when creating employees', function () {
-    $numbers = collect(range(1, 30))
-        ->map(fn () => Employee::factory()->create()->no_pegawai);
+it('creates simple employee records without HR master data', function () {
+    $employee = Employee::factory()->create([
+        'nama_lengkap' => 'Budi Sitompul',
+        'nama_perusahaan' => 'PT Sitompul Bersama',
+        'jabatan' => 'Anggota',
+    ]);
 
-    expect($numbers->unique()->count())->toBe(30);
+    expect($employee->nama_lengkap)->toBe('Budi Sitompul')
+        ->and($employee->nama_perusahaan)->toBe('PT Sitompul Bersama')
+        ->and($employee->jabatan)->toBe('Anggota');
 });

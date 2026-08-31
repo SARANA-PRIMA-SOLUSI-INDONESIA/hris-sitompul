@@ -3,7 +3,10 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Auth\Pages\Register;
-use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
+use App\Filament\Resources\Articles\ArticleResource;
+use App\Filament\Resources\Employees\EmployeeResource;
+use App\Filament\Resources\SiteSettings\SiteSettingResource;
+use App\Filament\Widgets\StatsOverview;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -41,17 +44,18 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogo(fn () => view('filament.admin.logo'))
             ->brandLogoHeight('auto')
             ->favicon(asset('images/logo.png'))
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
+            ->resources([
+                EmployeeResource::class,
+                ArticleResource::class,
+                SiteSettingResource::class,
+            ])
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([
                 Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
+                StatsOverview::class,
                 AccountWidget::class,
-            ])
-            ->plugins([
-                FilamentShieldPlugin::make(),
             ])
             ->strictAuthorization()
             ->middleware([
