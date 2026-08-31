@@ -1,8 +1,9 @@
 <?php
 
-it('redirects the root path to the admin dashboard', function () {
+it('serves the public community homepage', function () {
     $this->get('/')
-        ->assertRedirect(route('filament.admin.pages.dashboard'));
+        ->assertOk()
+        ->assertSee('Marga Sitompul');
 });
 
 it('serves the admin login page', function () {
