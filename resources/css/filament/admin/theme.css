@@ -26,6 +26,17 @@
     box-shadow: 5px 0 18px rgb(18 75 62 / 12%);
 }
 
+.fi-sidebar.fi-main-sidebar,
+.fi-sidebar.fi-main-sidebar::before,
+.fi-sidebar-header-ctn,
+.fi-sidebar-nav {
+    background: var(--panel-green-dark) !important;
+}
+
+.fi-sidebar.fi-main-sidebar {
+    min-height: 100dvh;
+}
+
 .fi-sidebar-header {
     min-height: 6.75rem;
     border-bottom: 1px solid rgb(255 255 255 / 10%);
@@ -69,6 +80,13 @@
 
 .fi-sidebar-item-btn {
     border-radius: 0.55rem;
+    color: #fff !important;
+}
+
+.fi-sidebar-item-btn:not(.fi-active),
+.fi-sidebar-item-btn:not(.fi-active) .fi-sidebar-item-label,
+.fi-sidebar-item-btn:not(.fi-active) .fi-sidebar-item-icon,
+.fi-sidebar-item-btn:not(.fi-active) svg {
     color: #fff !important;
 }
 
