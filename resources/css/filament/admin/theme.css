@@ -69,18 +69,40 @@
 
 .fi-sidebar-item-button {
     border-radius: 0.55rem;
-    color: #fff;
+    color: #fff !important;
+}
+
+.fi-sidebar-item-button:not(.fi-active) .fi-sidebar-item-label,
+.fi-sidebar-item-button:not(.fi-active) .fi-sidebar-item-icon,
+.fi-sidebar-item-button:not(.fi-active) svg {
+    color: #fff !important;
 }
 
 .fi-sidebar-item-button:hover {
     background: rgb(255 255 255 / 10%);
-    color: #fff;
+    color: #fff !important;
+}
+
+.fi-sidebar-item-button:hover .fi-sidebar-item-label,
+.fi-sidebar-item-button:hover .fi-sidebar-item-icon,
+.fi-sidebar-item-button:hover svg {
+    color: #fff !important;
 }
 
 .fi-sidebar-item-button.fi-active {
     background: var(--panel-lime);
-    color: var(--panel-green-dark);
+    color: var(--panel-green-dark) !important;
     font-weight: 700;
+}
+
+.fi-sidebar-item-button.fi-active .fi-sidebar-item-label,
+.fi-sidebar-item-button.fi-active .fi-sidebar-item-icon,
+.fi-sidebar-item-button.fi-active svg {
+    color: var(--panel-green-dark) !important;
+}
+
+.fi-sidebar-footer {
+    display: none;
 }
 
 .fi-topbar {
