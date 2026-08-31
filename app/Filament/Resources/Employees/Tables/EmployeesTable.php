@@ -34,6 +34,19 @@ class EmployeesTable
                     ->label('Jabatan')
                     ->searchable()
                     ->placeholder('-'),
+                TextColumn::make('no_telp')
+                    ->label('No. HP')
+                    ->searchable()
+                    ->placeholder('-'),
+                TextColumn::make('email_pribadi')
+                    ->label('Email')
+                    ->searchable()
+                    ->placeholder('-'),
+                TextColumn::make('alamat')
+                    ->label('Alamat')
+                    ->searchable()
+                    ->limit(35)
+                    ->placeholder('-'),
                 TextColumn::make('created_at')
                     ->label('Dibuat')
                     ->dateTime()

@@ -7,71 +7,209 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Keep the dashboard compact without changing Filament's component behavior. */
+:root {
+    --admin-forest: #123f35;
+    --admin-forest-deep: #0c2c26;
+    --admin-cream: #f7f5ef;
+    --admin-line: #e5e7e2;
+    --admin-muted: #718078;
+}
+
+/* The admin panel follows the same calm, editorial language as the public site. */
+.fi-body {
+    background: var(--admin-cream);
+}
+
+.fi-sidebar {
+    background: var(--admin-forest-deep);
+    border-inline-end: 0;
+    box-shadow: 12px 0 32px rgb(12 44 38 / 8%);
+}
+
 .fi-sidebar-header {
-    min-height: 5.25rem;
-    padding-block: 0.75rem;
+    min-height: 7.25rem;
+    padding: 1.35rem 1.25rem 1.1rem;
+    border-bottom: 1px solid rgb(255 255 255 / 10%);
 }
 
 .fi-sidebar-header .fi-logo {
-    max-height: 4.75rem;
-    overflow: hidden;
+    width: 100%;
+    color: #fff;
 }
 
 .fi-sidebar-header .fi-logo > div {
-    gap: 0.25rem;
-    max-width: 100%;
-    overflow: hidden;
-    padding-inline: 0.5rem;
+    width: 100%;
+    gap: 0.7rem;
+    align-items: flex-start;
+    padding: 0;
 }
 
 .fi-sidebar-header .fi-logo img {
-    height: 3rem;
-    max-width: 100%;
+    width: 3.2rem;
+    height: 3.2rem;
+    padding: 0.35rem;
+    border-radius: 0.8rem;
+    background: #fff;
+    object-fit: contain;
 }
 
 .fi-sidebar-header .fi-logo span {
     display: block;
-    max-width: 13rem;
-    overflow: hidden;
-    font-size: 0.65rem;
-    line-height: 0.875rem;
-    max-height: 1.75rem;
+    max-width: 12rem;
+    padding-top: 0.25rem;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: 0.04em;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.fi-sidebar-nav {
+    padding: 1.1rem 0.8rem;
+}
+
+.fi-sidebar-group-label {
+    padding-inline: 0.75rem;
+    color: rgb(255 255 255 / 45%);
+    font-size: 0.64rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.fi-sidebar-item-button {
+    margin-block: 0.18rem;
+    border-radius: 0.7rem;
+    color: rgb(255 255 255 / 72%);
+    transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.fi-sidebar-item-button:hover {
+    background: rgb(255 255 255 / 9%);
+    color: #fff;
+    transform: translateX(2px);
+}
+
+.fi-sidebar-item-button.fi-active {
+    background: #c7e86b;
+    color: var(--admin-forest-deep);
+    font-weight: 700;
+}
+
+.fi-topbar {
+    background: rgb(255 255 255 / 88%);
+    border-bottom: 1px solid var(--admin-line);
+    backdrop-filter: blur(12px);
 }
 
 .fi-main-ctn {
-    padding-block: 1.25rem;
+    padding: 2.1rem clamp(1rem, 3vw, 3rem);
 }
 
 .fi-page-header {
-    margin-bottom: 1rem;
+    margin-bottom: 1.6rem;
+}
+
+.fi-header-heading {
+    color: var(--admin-forest-deep);
+    letter-spacing: -0.025em;
+}
+
+.fi-header-subheading {
+    color: var(--admin-muted);
+}
+
+.fi-section,
+.fi-wi-widget,
+.fi-ta-ctn,
+.fi-fo-component-ctn {
+    border: 1px solid var(--admin-line);
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgb(18 63 53 / 4%);
 }
 
 .fi-wi-stats-overview {
-    gap: 0.75rem;
+    gap: 1rem;
 }
 
 .fi-wi-stats-overview-stat {
-    min-height: 7.5rem;
-    padding: 1rem;
+    min-height: 9rem;
+    padding: 1.3rem;
+    border: 1px solid var(--admin-line);
+    border-radius: 1rem;
+    background: #fff;
+    box-shadow: 0 10px 30px rgb(18 63 53 / 4%);
 }
 
 .fi-wi-stats-overview-stat-value {
-    font-size: 1.5rem;
-    line-height: 1.25;
+    color: var(--admin-forest);
+    font-size: 2.2rem;
+    letter-spacing: -0.04em;
 }
 
-.fi-wi-chart {
-    min-height: 20rem;
+.fi-wi-stats-overview-stat-label,
+.fi-wi-stats-overview-stat-description {
+    color: var(--admin-muted);
+}
+
+.fi-btn {
+    border-radius: 0.65rem;
+    font-weight: 700;
+}
+
+.fi-btn-color-primary {
+    background: var(--admin-forest);
+}
+
+.fi-btn-color-primary:hover {
+    background: var(--admin-forest-deep);
+}
+
+.fi-input,
+.fi-select,
+.fi-fo-textarea {
+    border-radius: 0.65rem;
+}
+
+.fi-ta-table thead th {
+    color: var(--admin-muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.fi-ta-table tbody tr {
+    transition: background-color 140ms ease;
+}
+
+.fi-ta-table tbody tr:hover {
+    background: #fbfcf9;
 }
 
 @media (max-width: 640px) {
     .fi-main-ctn {
-        padding-block: 1rem;
+        padding: 1.1rem 0.85rem;
+    }
+
+    .fi-page-header {
+        margin-bottom: 1rem;
     }
 
     .fi-wi-stats-overview-stat {
-        min-height: 6.75rem;
-        padding: 0.875rem;
+        min-height: 7.25rem;
+        padding: 1rem;
+    }
+
+    .fi-wi-stats-overview-stat-value {
+        font-size: 1.8rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fi-sidebar-item-button,
+    .fi-ta-table tbody tr {
+        transition: none;
     }
 }
