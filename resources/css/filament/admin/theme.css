@@ -23,6 +23,7 @@
 .fi-sidebar {
     background: var(--panel-green-dark);
     border-inline-end: 0;
+    box-shadow: 5px 0 18px rgb(18 75 62 / 12%);
 }
 
 .fi-sidebar-header {
@@ -68,11 +69,11 @@
 
 .fi-sidebar-item-button {
     border-radius: 0.55rem;
-    color: rgb(255 255 255 / 74%);
+    color: #fff;
 }
 
 .fi-sidebar-item-button:hover {
-    background: rgb(255 255 255 / 9%);
+    background: rgb(255 255 255 / 10%);
     color: #fff;
 }
 
@@ -83,6 +84,7 @@
 }
 
 .fi-topbar {
+    display: none;
     border-bottom: 1px solid var(--panel-border);
     background: #fff;
 }
@@ -150,6 +152,10 @@
 }
 
 @media (max-width: 640px) {
+    .fi-topbar {
+        display: flex;
+    }
+
     .fi-main-ctn {
         padding: 1rem 0.85rem;
     }
