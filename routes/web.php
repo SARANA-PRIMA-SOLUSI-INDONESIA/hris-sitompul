@@ -10,6 +10,7 @@ Route::get('/', function () {
 
 Route::get('/kabar/{slug}', function (string $slug) {
     $article = Article::query()->where('slug', $slug)->where('diterbitkan', true)->firstOrFail();
+
     return view('article.show', compact('article'));
 })->name('article.show');
 

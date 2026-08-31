@@ -18,16 +18,33 @@ use UnitEnum;
 class ArticleResource extends Resource
 {
     protected static ?string $model = Article::class;
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedNewspaper;
+
     protected static string|UnitEnum|null $navigationGroup = 'Konten Komunitas';
+
     protected static ?string $navigationLabel = 'Artikel & Berita';
+
     protected static ?string $modelLabel = 'Artikel';
+
     protected static ?string $pluralModelLabel = 'Artikel & Berita';
 
-    public static function form(Schema $schema): Schema { return ArticleForm::configure($schema); }
-    public static function table(Table $table): Table { return ArticlesTable::configure($table); }
+    public static function form(Schema $schema): Schema
+    {
+        return ArticleForm::configure($schema);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return ArticlesTable::configure($table);
+    }
+
     public static function getPages(): array
     {
-        return ['index' => ListArticles::route('/'), 'create' => CreateArticle::route('/create'), 'edit' => EditArticle::route('/{record}/edit')];
+        return [
+            'index' => ListArticles::route('/'),
+            'create' => CreateArticle::route('/create'),
+            'edit' => EditArticle::route('/{record}/edit'),
+        ];
     }
 }

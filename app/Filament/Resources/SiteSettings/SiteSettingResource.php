@@ -18,16 +18,33 @@ use UnitEnum;
 class SiteSettingResource extends Resource
 {
     protected static ?string $model = SiteSetting::class;
+
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCog6Tooth;
+
     protected static string|UnitEnum|null $navigationGroup = 'Konten Komunitas';
+
     protected static ?string $navigationLabel = 'Pengaturan Situs';
+
     protected static ?string $modelLabel = 'Pengaturan Situs';
+
     protected static ?string $pluralModelLabel = 'Pengaturan Situs';
 
-    public static function form(Schema $schema): Schema { return SiteSettingForm::configure($schema); }
-    public static function table(Table $table): Table { return SiteSettingsTable::configure($table); }
+    public static function form(Schema $schema): Schema
+    {
+        return SiteSettingForm::configure($schema);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return SiteSettingsTable::configure($table);
+    }
+
     public static function getPages(): array
     {
-        return ['index' => ListSiteSettings::route('/'), 'create' => CreateSiteSetting::route('/create'), 'edit' => EditSiteSetting::route('/{record}/edit')];
+        return [
+            'index' => ListSiteSettings::route('/'),
+            'create' => CreateSiteSetting::route('/create'),
+            'edit' => EditSiteSetting::route('/{record}/edit'),
+        ];
     }
 }
