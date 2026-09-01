@@ -101,22 +101,22 @@
     color: #fff !important;
 }
 
-.fi-sidebar-item-btn.fi-active {
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn {
     background: var(--panel-lime);
     color: #111827 !important;
     font-weight: 700;
 }
 
-.fi-sidebar-item-btn.fi-active .fi-sidebar-item-label,
-.fi-sidebar-item-btn.fi-active .fi-sidebar-item-icon,
-.fi-sidebar-item-btn.fi-active svg {
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn .fi-sidebar-item-label,
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn .fi-sidebar-item-icon,
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn svg {
     color: #111827 !important;
 }
 
-.fi-sidebar-item-btn.fi-active:hover,
-.fi-sidebar-item-btn.fi-active:hover .fi-sidebar-item-label,
-.fi-sidebar-item-btn.fi-active:hover .fi-sidebar-item-icon,
-.fi-sidebar-item-btn.fi-active:hover svg {
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn:hover,
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn:hover .fi-sidebar-item-label,
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn:hover .fi-sidebar-item-icon,
+.fi-sidebar-item.fi-active > .fi-sidebar-item-btn:hover svg {
     color: #111827 !important;
 }
 
