@@ -43,7 +43,7 @@ class AdminPanelProvider extends PanelProvider
             ->brandName('SITOMPUL')
             ->brandLogo(fn () => view('filament.admin.logo'))
             ->brandLogoHeight('auto')
-            ->favicon(asset('images/logo.png') . '?v=2')
+            ->favicon(asset('images/logo.png').'?v=2')
             ->resources([
                 EmployeeResource::class,
                 ArticleResource::class,
