@@ -113,6 +113,13 @@
     color: #111827 !important;
 }
 
+.fi-sidebar-item-btn.fi-active:hover,
+.fi-sidebar-item-btn.fi-active:hover .fi-sidebar-item-label,
+.fi-sidebar-item-btn.fi-active:hover .fi-sidebar-item-icon,
+.fi-sidebar-item-btn.fi-active:hover svg {
+    color: #111827 !important;
+}
+
 .fi-sidebar-footer,
 .fi-sidebar > footer {
     display: none;

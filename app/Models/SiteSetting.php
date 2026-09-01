@@ -17,8 +17,14 @@ class SiteSetting extends Model
             ]);
         }
 
-        return static::query()->first() ?? new static([
+        $setting = static::query()->first() ?? new static([
             'nama_komunitas' => config('app.name', 'Marga Sitompul'),
         ]);
+
+        if (strtolower((string) $setting->nama_komunitas) === 'sitombung') {
+            $setting->nama_komunitas = 'SITOMPUL';
+        }
+
+        return $setting;
     }
 }
