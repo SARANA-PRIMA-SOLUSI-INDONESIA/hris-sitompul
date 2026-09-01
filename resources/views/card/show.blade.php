@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}?v=2">
     <title>{{ $employee->nama_lengkap }}</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
