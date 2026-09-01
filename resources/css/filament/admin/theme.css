@@ -90,13 +90,6 @@
     color: #fff !important;
 }
 
-.fi-sidebar-item-btn:not(.fi-active),
-.fi-sidebar-item-btn:not(.fi-active) .fi-sidebar-item-label,
-.fi-sidebar-item-btn:not(.fi-active) .fi-sidebar-item-icon,
-.fi-sidebar-item-btn:not(.fi-active) svg {
-    color: #fff !important;
-}
-
 .fi-sidebar-item-btn:hover {
     background: rgb(255 255 255 / 10%);
     color: #fff !important;
@@ -110,14 +103,14 @@
 
 .fi-sidebar-item-btn.fi-active {
     background: var(--panel-lime);
-    color: var(--panel-green-dark) !important;
+    color: #111827 !important;
     font-weight: 700;
 }
 
 .fi-sidebar-item-btn.fi-active .fi-sidebar-item-label,
 .fi-sidebar-item-btn.fi-active .fi-sidebar-item-icon,
 .fi-sidebar-item-btn.fi-active svg {
-    color: var(--panel-green-dark) !important;
+    color: #111827 !important;
 }
 
 .fi-sidebar-footer,
