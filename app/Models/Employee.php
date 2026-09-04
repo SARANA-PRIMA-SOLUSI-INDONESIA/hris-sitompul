@@ -63,6 +63,14 @@ class Employee extends Model
 
     public function fieldIsVisible(string $field): bool
     {
-        return $this->visibilitas_field[$field] ?? true;
+        $visibility = $this->visibilitas_field;
+
+        if (! is_array($visibility) || $visibility === []) {
+            return true;
+        }
+
+        return array_is_list($visibility)
+            ? in_array($field, $visibility, true)
+            : ($visibility[$field] ?? true);
     }
 }
