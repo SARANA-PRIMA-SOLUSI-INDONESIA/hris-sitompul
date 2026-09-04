@@ -138,7 +138,7 @@
             @endforeach
         </div>
         <div class="card-footer">
-            {{ config('app.name', 'SITOMPUL') }} &middot; {{ date('Y') }}
+            SITOMPUL &middot; {{ date('Y') }}
         </div>
     </div>
 </body>
