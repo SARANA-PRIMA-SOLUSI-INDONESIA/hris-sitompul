@@ -73,4 +73,26 @@ class Employee extends Model
             ? in_array($field, $visibility, true)
             : ($visibility[$field] ?? true);
     }
+
+    public static function qrFieldLabels(): array
+    {
+        return [
+            'nama_lengkap' => 'Nama', 'panggoaran' => 'Panggoaran', 'tempat_lahir' => 'Tempat Tanggal Lahir',
+            'tanggal_lahir' => 'Tanggal Lahir', 'jenis_kelamin' => 'Jenis Kelamin',
+            'alamat_tinggal_saat_ini' => 'Alamat Tinggal saat ini', 'alamat_ktp' => 'Alamat KTP',
+            'agama' => 'Agama', 'status_pernikahan' => 'Status Perkawinan', 'pekerjaan' => 'Pekerjaan',
+            'status_anggota' => 'Status', 'no_telp' => 'No. HP', 'email_pribadi' => 'Email',
+            'gol_darah' => 'Gol Darah', 'tanggal_terdaftar_anggota' => 'Tanggal Terdaftar sebagai Anggota',
+            'no_pegawai' => 'No Anggota', 'nik' => 'NIK',
+        ];
+    }
+
+    public function visibleQrFields(): array
+    {
+        $visibility = $this->visibilitas_field;
+
+        return is_array($visibility) && $visibility !== []
+            ? (array_is_list($visibility) ? $visibility : array_keys(array_filter($visibility)))
+            : array_keys(static::qrFieldLabels());
+    }
 }

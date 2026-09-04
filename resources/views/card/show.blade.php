@@ -126,7 +126,7 @@
                 ];
             @endphp
             @foreach ($fields as $field => [$label, $value])
-                @if ($employee->fieldIsVisible($field) && filled($value))
+                @if (in_array($field, $employee->visibleQrFields(), true) && filled($value))
                     <div class="info-row">
                         <div class="info-icon">&#10003;</div>
                         <div>
