@@ -5,6 +5,8 @@ namespace App\Filament\Resources\Employees\Exports;
 use App\Models\Employee;
 use Filament\Actions\Exports\ExportColumn;
 use Filament\Actions\Exports\Exporter;
+use Filament\Actions\Exports\Models\Export;
+use Illuminate\Support\Number;
 
 class EmployeeExporter extends Exporter
 {
@@ -31,5 +33,18 @@ class EmployeeExporter extends Exporter
             ExportColumn::make('no_pegawai')->label('No Anggota'),
             ExportColumn::make('nik')->label('NIK'),
         ];
+    }
+
+    public static function getCompletedNotificationBody(Export $export): string
+    {
+        $body = 'Export anggota selesai. '.Number::format($export->successful_rows).' '
+            .str('baris')->plural($export->successful_rows).' berhasil diekspor.';
+
+        if ($failedRowsCount = $export->getFailedRowsCount()) {
+            $body .= ' '.Number::format($failedRowsCount).' '
+                .str('baris')->plural($failedRowsCount).' gagal diekspor.';
+        }
+
+        return $body;
     }
 }
