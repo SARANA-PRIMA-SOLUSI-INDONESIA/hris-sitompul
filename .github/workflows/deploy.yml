@@ -30,7 +30,11 @@ jobs:
 
             echo "==> [1/6] Pull kode terbaru"
             cd ${{ secrets.VPS_PROJECT_PATH }}
-            git pull origin main
+            # Deploy server must match origin/main exactly. Discard local drift
+            # (e.g. package-lock.json rewritten by npm install on the VPS).
+            git fetch origin main
+            git reset --hard origin/main
+            git clean -fd -e storage -e .env -e node_modules -e vendor
 
             echo "==> [1b/6] Pastikan storage framework folders ada"
             mkdir -p storage/framework/views storage/framework/cache/data storage/framework/sessions
