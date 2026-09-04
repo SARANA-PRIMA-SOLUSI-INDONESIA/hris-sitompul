@@ -127,16 +127,20 @@
 
 .fi-topbar {
     display: none;
-    border-bottom: 1px solid var(--panel-border);
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border-bottom: 0;
     background: #fff;
 }
 
 .fi-main-ctn {
-    padding-block: 1.75rem;
+    padding-block: 0.75rem;
 }
 
 .fi-page-header {
-    margin-bottom: 1.35rem;
+    margin-bottom: 0.85rem;
 }
 
 .fi-header-heading {
@@ -196,10 +200,15 @@
 @media (max-width: 640px) {
     .fi-topbar {
         display: flex;
+        height: auto;
+        overflow: visible;
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid var(--panel-border);
     }
 
     .fi-main-ctn {
-        padding: 1rem 0.85rem;
+        padding: 0.75rem 0.85rem;
     }
 
     .fi-wi-stats-overview-stat {

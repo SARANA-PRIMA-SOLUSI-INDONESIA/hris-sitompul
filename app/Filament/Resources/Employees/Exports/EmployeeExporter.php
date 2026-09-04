@@ -47,4 +47,13 @@ class EmployeeExporter extends Exporter
 
         return $body;
     }
+
+    /**
+     * Run exports inline so the download toast appears immediately.
+     * (Background queue + hidden topbar meant users never saw the download link.)
+     */
+    public function getJobConnection(): ?string
+    {
+        return 'sync';
+    }
 }

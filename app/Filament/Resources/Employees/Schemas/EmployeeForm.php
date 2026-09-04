@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\Employees\Schemas;
 
+use App\Models\Employee;
+use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
@@ -9,6 +11,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Schema;
 
 class EmployeeForm
@@ -58,7 +61,23 @@ class EmployeeForm
             TextInput::make('no_pegawai')->label('No Anggota')->maxLength(30)->unique(ignoreRecord: true),
             TextInput::make('nik')->label('NIK')->required()->maxLength(30)->unique(ignoreRecord: true),
             FileUpload::make('foto')->label('Foto (Opsional)')->image()->directory('employee-photos')->avatar()->imageEditor(),
-            Toggle::make('tampilkan_kartu')->label('Aktifkan QR verifikasi')->default(true)->helperText('QR menampilkan data anggota yang relevan.'),
+            Toggle::make('tampilkan_kartu')
+                ->label('Aktifkan QR verifikasi')
+                ->default(true)
+                ->live()
+                ->helperText('QR menampilkan data anggota yang relevan.'),
+            CheckboxList::make('visibilitas_field')
+                ->label('Kolom yang ditampilkan di QR Card')
+                ->options(Employee::qrFieldLabels())
+                ->default(array_keys(Employee::qrFieldLabels()))
+                ->formatStateUsing(fn (?array $state): array => array_is_list($state ?? [])
+                    ? ($state ?? [])
+                    : array_keys(array_filter($state ?? [])))
+                ->columns(2)
+                ->gridDirection('row')
+                ->helperText('Centang kolom yang boleh dilihat ketika QR Card dipindai.')
+                ->visible(fn (Get $get): bool => (bool) $get('tampilkan_kartu'))
+                ->columnSpanFull(),
         ];
     }
 }
