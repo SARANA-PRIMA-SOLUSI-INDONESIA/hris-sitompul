@@ -15,7 +15,7 @@ class PayslipForm
             ->schema([
                 Grid::make(3)->schema([
                     Select::make('employee_id')
-                        ->label('Karyawan')
+                        ->label('Anggota')
                         ->relationship('employee', 'nama_lengkap')
                         ->searchable()
                         ->preload()

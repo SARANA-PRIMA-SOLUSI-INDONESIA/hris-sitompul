@@ -21,17 +21,18 @@ class EmployeesTable
                 ImageColumn::make('foto')
                     ->label('Foto')
                     ->circular()
-                    ->defaultImageUrl(fn (): string => 'https://ui-avatars.com/api/?name='.urlencode('Karyawan')),
+                    ->defaultImageUrl(fn (): string => 'https://ui-avatars.com/api/?name='.urlencode('Anggota')),
                 TextColumn::make('nama_lengkap')
                     ->label('Nama')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('nama_perusahaan')
-                    ->label('Perusahaan')
+                TextColumn::make('panggoaran')
+                    ->label('Panggoaran')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('jabatan')
-                    ->label('Jabatan')
+                TextColumn::make('status_anggota')
+                    ->label('Status')
+                    ->formatStateUsing(fn (?string $state): string => $state ? strtoupper($state) : '-')
                     ->searchable()
                     ->placeholder('-'),
                 TextColumn::make('no_telp')
@@ -42,8 +43,8 @@ class EmployeesTable
                     ->label('Email')
                     ->searchable()
                     ->placeholder('-'),
-                TextColumn::make('alamat')
-                    ->label('Alamat')
+                TextColumn::make('alamat_tinggal_saat_ini')
+                    ->label('Alamat Tinggal saat ini')
                     ->searchable()
                     ->limit(35)
                     ->placeholder('-'),

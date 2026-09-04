@@ -16,7 +16,7 @@ class PayslipsTable
         return $table
             ->columns([
                 TextColumn::make('employee.nama_lengkap')
-                    ->label('Karyawan')
+                    ->label('Anggota')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('periode')
@@ -45,7 +45,7 @@ class PayslipsTable
                         'final' => 'Final',
                     ]),
                 SelectFilter::make('employee_id')
-                    ->label('Karyawan')
+                    ->label('Anggota')
                     ->relationship('employee', 'nama_lengkap')
                     ->searchable()
                     ->preload(),

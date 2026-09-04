@@ -98,34 +98,44 @@
             @else
                 <div class="avatar-placeholder">{{ strtoupper(substr($employee->nama_lengkap, 0, 1)) }}</div>
             @endif
-            <div class="name">{{ $employee->nama_lengkap }}</div>
-            <div class="position">{{ $employee->jabatan }}</div>
-            <div class="company">{{ $employee->nama_perusahaan }}</div>
+            @if ($employee->fieldIsVisible('nama_lengkap'))
+                <div class="name">{{ $employee->nama_lengkap }}</div>
+            @endif
+            @if ($employee->fieldIsVisible('panggoaran'))
+                <div class="position">{{ $employee->panggoaran }}</div>
+            @endif
         </div>
         <div class="card-body">
-            <div class="info-row">
-                <div class="info-icon">&#128197;</div>
-                <div>
-                    <div class="info-label">No. Pegawai</div>
-                    <div class="info-value">{{ $employee->no_pegawai }}</div>
-                </div>
-            </div>
-            @if ($employee->nama_perusahaan)
-            <div class="info-row">
-                <div class="info-icon">&#127970;</div>
-                <div>
-                    <div class="info-label">Perusahaan</div>
-                    <div class="info-value">{{ $employee->nama_perusahaan }}</div>
-                </div>
-            </div>
-            @endif
-            <div class="info-row">
-                <div class="info-icon">&#10003;</div>
-                <div>
-                    <div class="info-label">Status</div>
-                    <div class="info-value">{{ $employee->isAktif() ? 'Terdaftar' : 'Tidak aktif' }}</div>
-                </div>
-            </div>
+            @php
+                $fields = [
+                    'tempat_lahir' => ['Tempat Tanggal Lahir', $employee->tempat_lahir],
+                    'tanggal_lahir' => ['Tanggal Lahir', $employee->tanggal_lahir?->format('d-m-Y')],
+                    'jenis_kelamin' => ['Jenis Kelamin', ['L' => 'Laki-laki', 'P' => 'Perempuan'][$employee->jenis_kelamin] ?? $employee->jenis_kelamin],
+                    'alamat_tinggal_saat_ini' => ['Alamat Tinggal saat ini', $employee->alamat_tinggal_saat_ini],
+                    'alamat_ktp' => ['Alamat KTP', $employee->alamat_ktp],
+                    'agama' => ['Agama', $employee->agama],
+                    'status_pernikahan' => ['Status Perkawinan', $employee->status_pernikahan],
+                    'pekerjaan' => ['Pekerjaan', $employee->pekerjaan],
+                    'status_anggota' => ['Status', $employee->status_anggota ? strtoupper($employee->status_anggota) : null],
+                    'no_telp' => ['No. HP', $employee->no_telp],
+                    'email_pribadi' => ['Email', $employee->email_pribadi],
+                    'gol_darah' => ['Gol Darah', $employee->gol_darah],
+                    'tanggal_terdaftar_anggota' => ['Tanggal Terdaftar sebagai Anggota', $employee->tanggal_terdaftar_anggota?->format('d-m-Y')],
+                    'no_pegawai' => ['No Anggota', $employee->no_pegawai],
+                    'nik' => ['NIK', $employee->nik],
+                ];
+            @endphp
+            @foreach ($fields as $field => [$label, $value])
+                @if ($employee->fieldIsVisible($field) && filled($value))
+                    <div class="info-row">
+                        <div class="info-icon">&#10003;</div>
+                        <div>
+                            <div class="info-label">{{ $label }}</div>
+                            <div class="info-value">{{ $value }}</div>
+                        </div>
+                    </div>
+                @endif
+            @endforeach
         </div>
         <div class="card-footer">
             {{ config('app.name', 'SITOMPUL') }} &middot; {{ date('Y') }}

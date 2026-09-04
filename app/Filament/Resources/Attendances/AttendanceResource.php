@@ -21,7 +21,7 @@ class AttendanceResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedClipboardDocumentCheck;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Kepegawaian';
+    protected static string|UnitEnum|null $navigationGroup = 'Keanggotaan';
 
     protected static ?string $navigationLabel = 'Absensi';
 

@@ -23,15 +23,15 @@ class EmployeeResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUsers;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Kepegawaian';
+    protected static string|UnitEnum|null $navigationGroup = 'Keanggotaan';
 
-    protected static ?string $navigationLabel = 'Karyawan';
+    protected static ?string $navigationLabel = 'Anggota';
 
     protected static ?int $navigationSort = 1;
 
-    protected static ?string $modelLabel = 'Karyawan';
+    protected static ?string $modelLabel = 'Anggota';
 
-    protected static ?string $pluralModelLabel = 'Karyawan';
+    protected static ?string $pluralModelLabel = 'Anggota';
 
     public static function form(Schema $schema): Schema
     {

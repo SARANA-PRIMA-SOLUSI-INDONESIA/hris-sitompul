@@ -11,8 +11,8 @@ class StatsOverview extends StatsOverviewWidget
     protected function getStats(): array
     {
         return [
-            Stat::make('Total Karyawan', Employee::count())
-                ->description('Data karyawan terdaftar')
+            Stat::make('Total Anggota', Employee::count())
+                ->description('Data anggota terdaftar')
                 ->descriptionIcon('heroicon-o-users')
                 ->color('success'),
         ];

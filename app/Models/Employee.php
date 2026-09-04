@@ -16,13 +16,23 @@ class Employee extends Model
         'no_pegawai',
         'slug',
         'tampilkan_kartu',
+        'visibilitas_field',
         'nama_lengkap',
-        'nama_perusahaan',
-        'jabatan',
+        'panggoaran',
         'nik',
-        'alamat',
+        'tempat_lahir',
+        'tanggal_lahir',
+        'jenis_kelamin',
+        'alamat_tinggal_saat_ini',
+        'alamat_ktp',
+        'agama',
+        'status_pernikahan',
+        'pekerjaan',
+        'status_anggota',
         'no_telp',
         'email_pribadi',
+        'gol_darah',
+        'tanggal_terdaftar_anggota',
         'foto',
     ];
 
@@ -30,6 +40,9 @@ class Employee extends Model
     {
         return [
             'tampilkan_kartu' => 'boolean',
+            'visibilitas_field' => 'array',
+            'tanggal_lahir' => 'date',
+            'tanggal_terdaftar_anggota' => 'date',
         ];
     }
 
@@ -37,7 +50,7 @@ class Employee extends Model
     {
         return LogOptions::defaults()
             ->logOnly([
-                'nama_lengkap', 'nama_perusahaan', 'jabatan', 'nik', 'no_telp', 'email_pribadi',
+                'nama_lengkap', 'panggoaran', 'nik', 'no_telp', 'email_pribadi', 'status_anggota',
             ])
             ->logOnlyDirty()
             ->dontSubmitEmptyLogs();
@@ -46,5 +59,10 @@ class Employee extends Model
     public function isAktif(): bool
     {
         return true;
+    }
+
+    public function fieldIsVisible(string $field): bool
+    {
+        return $this->visibilitas_field[$field] ?? true;
     }
 }

@@ -17,7 +17,7 @@ class AttendancesTable
         return $table
             ->columns([
                 TextColumn::make('employee.nama_lengkap')
-                    ->label('Karyawan')
+                    ->label('Anggota')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('tanggal')
@@ -58,7 +58,7 @@ class AttendancesTable
                         'alpha' => 'Alpha',
                     ]),
                 SelectFilter::make('employee_id')
-                    ->label('Karyawan')
+                    ->label('Anggota')
                     ->relationship('employee', 'nama_lengkap')
                     ->searchable()
                     ->preload(),

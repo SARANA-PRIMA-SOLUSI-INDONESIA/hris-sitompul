@@ -21,7 +21,7 @@ class LeavesTable
         return $table
             ->columns([
                 TextColumn::make('employee.nama_lengkap')
-                    ->label('Karyawan')
+                    ->label('Anggota')
                     ->searchable(),
                 TextColumn::make('leaveType.nama')
                     ->label('Jenis Cuti')

@@ -21,7 +21,7 @@ class LeaveResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCalendarDays;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Kepegawaian';
+    protected static string|UnitEnum|null $navigationGroup = 'Keanggotaan';
 
     protected static ?string $navigationLabel = 'Cuti & Izin';
 
