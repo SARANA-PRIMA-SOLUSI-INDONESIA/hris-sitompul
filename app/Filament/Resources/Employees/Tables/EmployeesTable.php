@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources\Employees\Tables;
 
-use App\Filament\Resources\Employees\Actions\ConfigureQrCardAction;
 use App\Filament\Resources\Employees\Actions\ShowQrCardAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -61,7 +60,6 @@ class EmployeesTable
             ->defaultSort('nama_lengkap')
             ->recordActions([
                 EditAction::make(),
-                ConfigureQrCardAction::make(),
                 ShowQrCardAction::make(),
             ])
             ->toolbarActions([
